@@ -21,7 +21,7 @@ Also, you can set view to it. ScrollView will be automatically added.<br>
 ###How to Use(?) 사용법(?)
 Make a class named AlertWindow and Copt+Paste.<br>
 AlertWindow라는 클래스 하나 만들고 소스 복사+붙여넣기 하시고 사용하시면 됩니다.<br>
-<img src="https://raw.githubusercontent.com/DarkTornado/AlertWindow/master/Example_Image_4.png" width="360">
+<img src="https://raw.githubusercontent.com/DarkTornado/AlertWindow/master/Example_Image_4.png" width="560">
 <br><br>
 
 
