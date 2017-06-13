@@ -24,32 +24,32 @@ ctx is context of app. You can use this or getApplicationContext().<br>
 ctx는 앱의 context값. this나 getApplicationContext()라고 적으면 됨.
 
 
-- .setTitle(String title);<br>
+- <b>.setTitle(String title);</b><br>
 Set AlertWindow's title.<br>
 AlertWindow의 타이틀 설정.
 
-- .setMessage(String msg);<br>
+- <b>.setMessage(String msg);</b><br>
 Set AlertWindow's message.<br>
 AlertWindow의 메시지 설정.
 
 
-- .setView(View view);<br>
+- <b>.setView(View view);</b><br>
 Set AlertWindow's view. I recommend use LinearLayout as a parameter.<br>
 AlertWindow의 뷰 설정. LinearLayout을 매개변수로 사용하는 것을 추천.
 
-- .useCloseButton(boolean use);<br>
+- <b>.useCloseButton(boolean use);</b><br>
 Select using X button or not. Defualt is true.<br>
 X버튼을 사용할지 말지 결정. 기본값은 true.
 
-- .setButton(String txt, View.OnClickListener listener);<br>
+- <b>.setButton(String txt, View.OnClickListener listener);</b><br>
 Set Button to AlertWindow like NegativeButton from AlertDialog.<br>
 AlertDialog에 있는 부정 버튼과 같은 버튼을 AlertWindow에 설정.
 
-- .show();<br>
+- <b>.show();</b><br>
 Show the AlertWindow<br>
 AlertWindow 출력.
 
-- .close();<br>
+- <b>.close();</b><br>
 Close the AlertWindow<br>
 AlertWindow 삭제.
 
