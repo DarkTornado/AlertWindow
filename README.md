@@ -11,7 +11,7 @@ So, AlertWindow uses WindowManager.
 
 
 
-You can set title and put message as AlertDialog.
+You can set title and put message as AlertDialog.<br>
 다이얼로그처럼 제목과 메시지 설정 가능.
 <img src="https://raw.githubusercontent.com/DarkTornado/AlertWindow/master/Example_Image_2.png" width="360">
 
@@ -20,10 +20,10 @@ Also, you can set view to it. ScrollView will be automatically added.
 <img src="https://raw.githubusercontent.com/DarkTornado/AlertWindow/master/Example_Image_3.png" width="360">
 
 
--new AlertWindow(Context ctx);
+- new AlertWindow(Context ctx);
 ctx is context of app. You can use this or getApplicationContext(). ctx는 앱의 context값. this나 getApplicationContext()라고 적으면 됨.
 
--new AlertWindow(Context ctx);
+- new AlertWindow(Context ctx);
 ctx is context of app. You can use this or getApplicationContext(). ctx는 앱의 context값. this나 getApplicationContext()라고 적으면 됨.
 
 
