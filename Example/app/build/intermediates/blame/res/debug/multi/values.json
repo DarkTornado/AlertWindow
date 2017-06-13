@@ -1,0 +1,56 @@
+[
+    {
+        "outputFile": "C:\\Users\\DarkTornado\\AndroidStudioProjects\\AlertWindowExample\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 45,
+                    "endOffset": 96
+                },
+                "from": {
+                    "file": "C:\\Users\\DarkTornado\\AndroidStudioProjects\\AlertWindowExample\\app\\src\\main\\res\\values\\colors.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 101,
+                    "endColumn": 46,
+                    "endOffset": 143
+                },
+                "from": {
+                    "file": "C:\\Users\\DarkTornado\\AndroidStudioProjects\\AlertWindowExample\\app\\src\\main\\res\\values\\colors.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 148,
+                    "endColumn": 50,
+                    "endOffset": 194
+                },
+                "from": {
+                    "file": "C:\\Users\\DarkTornado\\AndroidStudioProjects\\AlertWindowExample\\app\\src\\main\\res\\values\\colors.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 199,
+                    "endLine": 7,
+                    "endColumn": 12,
+                    "endOffset": 273
+                },
+                "from": {
+                    "file": "C:\\Users\\DarkTornado\\AndroidStudioProjects\\AlertWindowExample\\app\\src\\main\\res\\values\\styles.xml"
+                }
+            }
+        ]
+    }
+]
