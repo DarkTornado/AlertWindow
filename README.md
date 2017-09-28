@@ -11,7 +11,7 @@ It needs android.permission.SYSTEM_ALERT_WINDOW.<br><br>
 서비스에서는 팝업 윈도우나 다이얼로그를 사용할 수 없기 때문에, AlertWindow는 WindowManager를 사용합니다.<br>
 android.permission.SYSTEM_ALERT_WINDOW 권한이 필요합니다.<br><br>
 
-If you want to use as PopupWindow, please reference <a href="https://github.com/DarkTornado/FloawingWindow">FloawingWindow</a>.
+If you want to use as PopupWindow, please reference <a href="https://github.com/DarkTornado/FloawingWindow">FloawingWindow</a>.<br>
 만약, PopupWindow처럼 사용하는 것을 원한다면, <a href="https://github.com/DarkTornado/FloawingWindow">FloawingWindow</a>을 참고해주세요.
 
 You can set title and put message as AlertDialog.<br>
