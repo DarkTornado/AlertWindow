@@ -29,6 +29,8 @@ AlertWindow라는 클래스 하나 만들고 소스 복사+붙여넣기 하시�
 <br><br>
 
 
+### API
+
 - <b>new AlertWindow(Context ctx);</b><br>
 ctx is context of app. You can use this or getApplicationContext().<br>
 ctx는 앱의 context값. this나 getApplicationContext()라고 적으면 됨.
