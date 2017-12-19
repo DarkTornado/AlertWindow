@@ -1,5 +1,6 @@
 /*
 AlertWindow
+version 2.0
 © 2017 Dark Tornado, All rights reserved.
 You can customize it as changing color, texts or add animation.
 */
@@ -9,7 +10,9 @@ package com.darktornado.alertwindowexample;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
+import android.os.Handler;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -33,6 +36,7 @@ public class AlertWindow {
     private boolean useExit;
     private LinearLayout layout;
     private TextView btn;
+    private boolean drag;
 
     public AlertWindow(Context ctx2) {
         try {
@@ -41,6 +45,35 @@ public class AlertWindow {
             msg = null;
             useExit = true;
             btn = null;
+            drag = true;
+            int x = ctx.getResources().getDisplayMetrics().widthPixels;
+            int y = ctx.getResources().getDisplayMetrics().heightPixels;
+            if(x<y)
+                mParams = new WindowManager.LayoutParams(
+                        x/2, ((x/2)*4/3),
+                        WindowManager.LayoutParams.TYPE_PHONE,
+                        WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
+                        PixelFormat.TRANSLUCENT);
+            else
+                mParams = new WindowManager.LayoutParams(
+                        (y*3/4)*3/4, y*3/4,
+                        WindowManager.LayoutParams.TYPE_PHONE,
+                        WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
+                        PixelFormat.TRANSLUCENT);
+        }
+        catch(Exception e){
+            toast(e.toString());
+        }
+    }
+
+    public AlertWindow(Context ctx2, boolean hasEditText) {
+        try {
+            ctx = ctx2;
+            title = null;
+            msg = null;
+            useExit = true;
+            btn = null;
+            drag = true;
             int x = ctx.getResources().getDisplayMetrics().widthPixels;
             int y = ctx.getResources().getDisplayMetrics().heightPixels;
             if(x<y)
@@ -135,6 +168,32 @@ public class AlertWindow {
                 title.setBackgroundColor(Color.argb(90, 90, 90, 90));
                 if(useExit) layout.addView(makeExit());
                 else layout.addView(title);
+                final boolean[] longClick = {false};
+                if (drag) title.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent ev) {
+                        if (longClick[0]) {
+                            switch (ev.getAction()) {
+                                case MotionEvent.ACTION_UP:
+                                    longClick[0] = false;
+                                    break;
+                                case MotionEvent.ACTION_MOVE:
+                                    mParams.x = (int) ev.getRawX() - mParams.width / 2;
+                                    mParams.y = (int) ev.getRawY() - mParams.height / 2;
+                                    mParams.gravity = Gravity.LEFT | Gravity.TOP;
+                                    mManager.updateViewLayout(layout, mParams);
+                                    break;
+                            }
+                        } else if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+                            new Handler().postDelayed(new Runnable() {
+                                public void run() {
+                                    if (!longClick[0]) longClick[0] = true;
+                                }
+                            }, 500);
+                        }
+                        return true;
+                    }
+                });
             }
             if(view!=null) layout2.addView(view);
             if(msg!=null) layout2.addView(msg);
@@ -194,6 +253,10 @@ public class AlertWindow {
         catch(Exception e){
             toast(e.toString());
         }
+    }
+
+    public void setDraggable(boolean canDrag){
+        drag = canDrag;
     }
 
 
