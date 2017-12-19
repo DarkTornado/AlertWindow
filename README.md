@@ -48,9 +48,8 @@ AlertWindow의 타이틀 설정.
 Set AlertWindow's message.<br>
 AlertWindow의 메시지 설정.
 
-
 - <b>.setView(View view);</b><br>
-Set AlertWindow's view. I recommend use LinearLayout as a parameter.<br>
+Set AlertWindow's view. I recommend using LinearLayout as a parameter.<br>
 AlertWindow의 뷰 설정. LinearLayout을 매개변수로 사용하는 것을 추천.
 
 - <b>.useCloseButton(boolean use);</b><br>
