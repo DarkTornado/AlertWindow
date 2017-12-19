@@ -35,6 +35,10 @@ AlertWindow라는 클래스 하나 만들고 소스 복사+붙여넣기 하시�
 ctx is context of app. You can use this or getApplicationContext().<br>
 ctx는 앱의 context값. this나 getApplicationContext()라고 적으면 됨.
 
+- <b>new AlertWindow(Context ctx, boolean hasEditText);</b><br>
+If you want to input any value to EditText in AlertWindow, you should set hasEditText true..<br>
+만약, AlertWindow에 있는 EditText에 값을 입력하고 싶다면, hasEditText를 true로 설정해야 함.
+
 
 - <b>.setTitle(String title);</b><br>
 Set AlertWindow's title.<br>
@@ -65,4 +69,7 @@ AlertWindow 출력.
 Close the AlertWindow<br>
 AlertWindow 삭제.
 
+- <b>.setDraggable(boolean canDrag);</b><br>
+if canDrag is true, you can move the AlertWindow's position by dragging its title. Defualt is true.<br>
+AlertWindow의 타이틀 부분을 길게 눌러서 이동시킬 수 있도록 할지 설정. 기본값은 true.
 
