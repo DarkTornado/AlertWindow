@@ -1,6 +1,6 @@
 /*
 AlertWindow
-version 2.0
+version 2.1
 © 2017 Dark Tornado, All rights reserved.
 You can customize it as changing color, texts or add animation.
 */
