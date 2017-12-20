@@ -73,6 +73,6 @@ if canDrag is true, you can move the AlertWindow's position by dragging its titl
 AlertWindow의 타이틀 부분을 길게 눌러서 이동시킬 수 있도록 할지 설정. 기본값은 true.
 
 - <b>.setFoldable(boolean canFold);</b><br>
-if canFold is true, you can fold the AlertWindow by touching its title. Defualt is true.<br>
+if canFold is true, you can fold the AlertWindow by touching its title. Defualt is false.<br>
 AlertWindow의 타이틀 부분을 길게 눌러서 접을 수 있도록 할지 설정. 기본값은 false.
 
