@@ -37,6 +37,7 @@ public class AlertWindow {
     private LinearLayout layout;
     private TextView btn;
     private boolean drag;
+    private boolean fold;
 
     public AlertWindow(Context ctx2) {
         try {
@@ -46,6 +47,7 @@ public class AlertWindow {
             useExit = true;
             btn = null;
             drag = true;
+            fold = false;
             int x = ctx.getResources().getDisplayMetrics().widthPixels;
             int y = ctx.getResources().getDisplayMetrics().heightPixels;
             if(x<y)
@@ -74,6 +76,7 @@ public class AlertWindow {
             useExit = true;
             btn = null;
             drag = true;
+            fold = false;
             int x = ctx.getResources().getDisplayMetrics().widthPixels;
             int y = ctx.getResources().getDisplayMetrics().heightPixels;
             if(x<y)
@@ -191,9 +194,30 @@ public class AlertWindow {
                                 }
                             }, 500);
                         }
-                        return true;
+                        return !fold;
                     }
                 });
+                if(fold){
+                    final int height = mParams.height;
+                    title.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            try {
+                                if (layout.getChildCount() == 1) {
+                                    layout.addView(scroll);
+                                    mParams.height = height;
+                                    mManager.updateViewLayout(layout, mParams);
+                                } else {
+                                    layout.removeView(scroll);
+                                    mParams.height = -2;
+                                    mManager.updateViewLayout(layout, mParams);
+                                }
+                            } catch (Exception e) {
+                                toast(e.toString());
+                            }
+                        }
+                    });
+                }
             }
             if(view!=null) layout2.addView(view);
             if(msg!=null) layout2.addView(msg);
@@ -257,6 +281,10 @@ public class AlertWindow {
 
     public void setDraggable(boolean canDrag){
         drag = canDrag;
+    }
+
+    public void setFoldable(boolean canFold){
+        fold = canFold;
     }
 
 
