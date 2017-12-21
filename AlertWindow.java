@@ -1,6 +1,6 @@
 /*
 AlertWindow
-version 2.1
+version 2.2
 © 2017 Dark Tornado, All rights reserved.
 You can customize it as changing color, texts or add animation.
 */
@@ -167,6 +167,7 @@ public class AlertWindow {
             layout.setOrientation(1);
             LinearLayout layout2 = new LinearLayout(ctx);
             layout2.setOrientation(1);
+            ScrollView scroll = new ScrollView(ctx);
             if(title!=null) {
                 title.setBackgroundColor(Color.argb(90, 90, 90, 90));
                 if(useExit) layout.addView(makeExit());
@@ -222,7 +223,6 @@ public class AlertWindow {
             if(view!=null) layout2.addView(view);
             if(msg!=null) layout2.addView(msg);
             if(btn!=null) layout2.addView(btn);
-            ScrollView scroll = new ScrollView(ctx);
             scroll.addView(layout2);
             int pad = dip2px(3);
             layout2.setPadding(pad, pad, pad, pad);
