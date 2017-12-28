@@ -36,8 +36,8 @@ ctx is context of app. You can use this or getApplicationContext().<br>
 ctx는 앱의 context값. this나 getApplicationContext()라고 적으면 됨.
 
 - <b>new AlertWindow(Context ctx, boolean hasEditText);</b><br>
-If you want to input any value to EditText in AlertWindow, you should set hasEditText true..<br>
-만약, AlertWindow에 있는 EditText에 값을 입력하고 싶다면, hasEditText를 true로 설정해야 함.
+If you want to input any value to EditText in AlertWindow, you should set hasEditText true. If hasEditText is true, you cannot touch AlertWindow's outside, but, you can touch when it is foldeded.<br>
+만약, AlertWindow에 있는 EditText에 값을 입력하고 싶다면, hasEditText를 true로 설정해야 함. hasEditText가 true이면 AlertWindow의 밖을 터치할 수 없으나, 접은 상태에서는 터치 가능.
 
 
 - <b>.setTitle(String title);</b><br>
