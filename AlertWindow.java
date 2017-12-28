@@ -1,6 +1,6 @@
 /*
 AlertWindow
-version 2.2
+version 3.0
 © 2017 Dark Tornado, All rights reserved.
 You can customize it as changing color, texts or add animation.
 */
@@ -38,6 +38,7 @@ public class AlertWindow {
     private TextView btn;
     private boolean drag;
     private boolean fold;
+    private boolean het;
 
     public AlertWindow(Context ctx2) {
         try {
@@ -54,14 +55,15 @@ public class AlertWindow {
                 mParams = new WindowManager.LayoutParams(
                         x/2, ((x/2)*4/3),
                         WindowManager.LayoutParams.TYPE_PHONE,
-                        WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
+                        WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
                         PixelFormat.TRANSLUCENT);
             else
                 mParams = new WindowManager.LayoutParams(
                         (y*3/4)*3/4, y*3/4,
                         WindowManager.LayoutParams.TYPE_PHONE,
-                        WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
+                        WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
                         PixelFormat.TRANSLUCENT);
+            het = false;
         }
         catch(Exception e){
             toast(e.toString());
@@ -79,18 +81,35 @@ public class AlertWindow {
             fold = false;
             int x = ctx.getResources().getDisplayMetrics().widthPixels;
             int y = ctx.getResources().getDisplayMetrics().heightPixels;
-            if(x<y)
-                mParams = new WindowManager.LayoutParams(
-                        x/2, ((x/2)*4/3),
-                        WindowManager.LayoutParams.TYPE_PHONE,
-                        WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
-                        PixelFormat.TRANSLUCENT);
-            else
-                mParams = new WindowManager.LayoutParams(
-                        (y*3/4)*3/4, y*3/4,
-                        WindowManager.LayoutParams.TYPE_PHONE,
-                        WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
-                        PixelFormat.TRANSLUCENT);
+            if(hasEditText){
+                if(x<y)
+                    mParams = new WindowManager.LayoutParams(
+                            x/2, ((x/2)*4/3),
+                            WindowManager.LayoutParams.TYPE_PHONE,
+                            WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
+                            PixelFormat.TRANSLUCENT);
+                else
+                    mParams = new WindowManager.LayoutParams(
+                            (y*3/4)*3/4, y*3/4,
+                            WindowManager.LayoutParams.TYPE_PHONE,
+                            WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
+                            PixelFormat.TRANSLUCENT);
+            }
+            else{
+                if(x<y)
+                    mParams = new WindowManager.LayoutParams(
+                            x/2, ((x/2)*4/3),
+                            WindowManager.LayoutParams.TYPE_PHONE,
+                            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+                            PixelFormat.TRANSLUCENT);
+                else
+                    mParams = new WindowManager.LayoutParams(
+                            (y*3/4)*3/4, y*3/4,
+                            WindowManager.LayoutParams.TYPE_PHONE,
+                            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+                            PixelFormat.TRANSLUCENT);
+                het = hasEditText;
+            }
         }
         catch(Exception e){
             toast(e.toString());
@@ -161,16 +180,16 @@ public class AlertWindow {
         }
     }
 
-    public void show(){
-        try{
+    public void show() {
+        try {
             layout = new LinearLayout(ctx);
             layout.setOrientation(1);
             LinearLayout layout2 = new LinearLayout(ctx);
             layout2.setOrientation(1);
-            ScrollView scroll = new ScrollView(ctx);
-            if(title!=null) {
+            final ScrollView scroll = new ScrollView(ctx);
+            if (title != null) {
                 title.setBackgroundColor(Color.argb(90, 90, 90, 90));
-                if(useExit) layout.addView(makeExit());
+                if (useExit) layout.addView(makeExit());
                 else layout.addView(title);
                 final boolean[] longClick = {false};
                 if (drag) title.setOnTouchListener(new View.OnTouchListener() {
@@ -207,10 +226,12 @@ public class AlertWindow {
                                 if (layout.getChildCount() == 1) {
                                     layout.addView(scroll);
                                     mParams.height = height;
+                                    if (het) mParams.flags = WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH;
                                     mManager.updateViewLayout(layout, mParams);
                                 } else {
                                     layout.removeView(scroll);
                                     mParams.height = -2;
+                                    if (het) mParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
                                     mManager.updateViewLayout(layout, mParams);
                                 }
                             } catch (Exception e) {
@@ -220,9 +241,9 @@ public class AlertWindow {
                     });
                 }
             }
-            if(view!=null) layout2.addView(view);
-            if(msg!=null) layout2.addView(msg);
-            if(btn!=null) layout2.addView(btn);
+            if (view != null) layout2.addView(view);
+            if (msg != null) layout2.addView(msg);
+            if (btn != null) layout2.addView(btn);
             scroll.addView(layout2);
             int pad = dip2px(3);
             layout2.setPadding(pad, pad, pad, pad);
@@ -231,8 +252,7 @@ public class AlertWindow {
             layout.setBackgroundColor(Color.argb(130, 50, 50, 50));
             mManager = (WindowManager) ctx.getSystemService(Context.WINDOW_SERVICE);
             mManager.addView(layout, mParams);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             toast(e.toString());
         }
     }
