@@ -17,18 +17,20 @@
 * 다이얼로그처럼 제목과 메시지 설정 가능.
 <img src="https://raw.githubusercontent.com/DarkTornado/AlertWindow/master/Example_Image_2.png" width="360">
 <br><br>
+
 * Also, you can set view to it. ScrollView will be automatically added.
 * 뷰 설정도 가능. 세로 스크롤뷰는 자동으로 추가됨.
+
 <img src="https://raw.githubusercontent.com/DarkTornado/AlertWindow/master/Example_Image_3.png" width="360">
 <br><br>
 
-### How to Use / 사용법
+## How to Use / 사용법
 * Make a class named `AlertWindow` and Copy+Paste.
 * `AlertWindow`라는 클래스 하나 만들고 소스 복사+붙여넣기 하시고 사용하시면 됩니다.
 <img src="https://raw.githubusercontent.com/DarkTornado/AlertWindow/master/Example_Image_4.png" width="720">
 <br><br>
 
-### API
+## API
 
 #### new AlertWindow(Context ctx);
 * `ctx` is Context of app. You can use `thi`s or `getApplicationContext()`.
