@@ -5,12 +5,11 @@
 * Customizing source as changing color, texts, size...etc, is allowed.
 * `AlertWindow` is made with `WindowManager` because we cannot use `PopupWindow` or `AlertDialog` in `Service`.
 * It needs `android.permission.SYSTEM_ALERT_WINDOW`.
+* If you want to use as PopupWindow, please reference [FloatingWindow](https://github.com/DarkTornado/FloatingWindow).
 <br><br>
 * 색상이나 문구, 크기 등을 수정하는 행위는 허용되어 있습니다.
 * 서비스에서는 팝업 윈도우나 다이얼로그를 사용할 수 없기 때문에, `AlertWindow`는 `WindowManager`로 구현되어 있습니다.
 * `android.permission.SYSTEM_ALERT_WINDOW` 권한이 필요합니다.
-<br><br>
-* If you want to use as PopupWindow, please reference [FloatingWindow](https://github.com/DarkTornado/FloatingWindow).
 * 만약, `PopupWindow`처럼 사용하는 것을 원한다면, [FloatingWindow](https://github.com/DarkTornado/FloatingWindow)을 참고해주세요.
 <br><br>
 * You can set title and put message as `AlertDialog`.
