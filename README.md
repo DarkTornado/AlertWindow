@@ -33,7 +33,7 @@
 ## API
 
 #### new AlertWindow(Context ctx);
-* `ctx` is Context of app. You can use `thi`s or `getApplicationContext()`.
+* `ctx` is Context of app. You can use `this` or `getApplicationContext()`.
 * `ctx`는 앱의 Context값. `this`나 `getApplicationContext()`라고 적으면 됨.
 
 #### new AlertWindow(Context ctx, boolean hasEditText);
