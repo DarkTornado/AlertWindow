@@ -30,6 +30,6 @@
 <img src="https://raw.githubusercontent.com/DarkTornado/AlertWindow/master/Example_Image_4.png" width="720">
 <br>
 
-## Docs
+## API Docs
 
 [Click Here to move](https://darktornado.github.io/libdocs/docs/AlertWindow/)
