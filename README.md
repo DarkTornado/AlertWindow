@@ -32,4 +32,4 @@
 
 ## API Docs
 
-[Click Here to move](https://darktornado.github.io/libdocs/docs/AlertWindow/)
+* [Click Here to move](https://darktornado.github.io/libdocs/docs/AlertWindow/)
